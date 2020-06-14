@@ -3,36 +3,6 @@
 class utils 
 {
 
-	
-	public static function Match($one, $two)
-	{
-		if($one == $two){return true;}
-		else{return false;}
-	}
-
-	public static function CarouselImage($data, $i)
-	{
-
-		return USERS_IMAGES.json_decode( $data['carousel'][$i]['galery'] )->img0;
-	}
-
-	public static function ShowPropetyImage($data, $i)
-	{
-		return USERS_IMAGES.json_decode( $data['propety'][$i]['galery'] )->img0;
-
-	}
-
-	public static function intProtect($int)
-	{
-		if( is_nan($int) )
-		{
-			return 0;
-		}
-		else
-		{
-			return intval($int);
-		}
-	}
 
 	public static function protect($input)
     {
@@ -103,7 +73,7 @@ class utils
 
 	public static function SessionActive()
 	{
-		if( !isset($_SESSION['roll']) OR !isset($_SESSION['userId']) OR !isset($_SESSION['authKey']) )
+		if( !isset($_SESSION['roll']) AND !isset($_SESSION['userId']) AND !isset($_SESSION['authKey']) )
 		{
 			return false;
 		}
@@ -113,42 +83,6 @@ class utils
 		}
 	}
 
-	public static function isService($sts)
-	{
-		if($sts == 'rent' || $sts == 'sold' || $sts == 'secure') 
-		{
-			return self::protect($sts);
-		}
-		else
-		{
-			return self::protect("rent");
-		}
-	}
-
-	public static function propetyStatus($int)
-	{
-		$int = intval($int);
-
-		if( is_int($int) )
-		{
-			if($int == 1)
-			{
-				return "Rent | ";
-			}
-			else if($int == 2)
-			{
-				return "Sold | ";
-			}
-			else
-			{
-				return "";
-			}
-		}
-		else
-		{
-			return "";
-		}
-	}
 }
 
 ?>

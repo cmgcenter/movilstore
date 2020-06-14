@@ -79,7 +79,7 @@
         		$view->estado = 405;
         		$body = [
         		    "status" => ESTADO_METODO_NO_PERMITIDO,
-        		    "msg" => $metodo." Método no permitido",
+        		    "msg" => $recurso." Método no permitido",
         		];
         		$view->imprimir($body);
 			}

@@ -22,7 +22,7 @@
 	//definimos algunas constantes.
 	CONST CURRENT_TEMPLATE = "default";
 	CONST ASSETS_PATH = '/views/templates/'.CURRENT_TEMPLATE."/assets/";
-	CONST TEMPLATE = ROOT.'/views/templates/'.CURRENT_TEMPLATE."/";
+	CONST TEMPLATE = ROOT.'/templates/'.CURRENT_TEMPLATE."/";
 	CONST USERS_IMAGES = '/views/images/users-images/';
 	CONST DEFAULT_IMAGES = '/views/images/default-images/';
 	CONST THIRDPARTY_PATH = '/thirdParty/';
@@ -56,7 +56,7 @@
         		{
         			if(file_exists($dir.$file))
         			{
-        				echo  $dir.$file."<br>";
+        				//echo  $dir.$file."<br>";
         				include $dir . $file;
         			}
             		

@@ -5,17 +5,19 @@
 	 */
 	class render
 	{
-		public static function addTemplate($tpl, $data=array())
+		public static function addTemplates($tpl, $Data=array())
     	{
-        	$data = $data;
+            //establecemos el roll al momento del login, de lo contrario sera 0
+            $roll = utils::userRoll(1);
 
-        	if( file_exists(TEMPLATE.$tpl.".php") )
+        	if( file_exists(TEMPLATE.$roll.'/'.$tpl.".php") )
         	{
-        		include TEMPLATE.$tpl.".php";
+                $data = $Data;
+        		include TEMPLATE.$roll.'/'.$tpl.".php";
         	}
         	else
         	{
-        		die($tpl ." Not Fount");
+        		die(TEMPLATE.$roll.'/'.$tpl.".php" ." Not Fount");
         	}
     	}
 	}

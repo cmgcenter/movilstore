@@ -1,14 +1,15 @@
 <?php 
 	
-	//definimos las rutas autorizadas, si la ruta no esta en este array
-	//no se tendra acceso al controlador ni al modelo y la vista dara el error 404
+	/*
+	*Cada Ruta tiene un Controlador y un Modelo
+	*el nombre del archivo de los controladores sera el mismo nombre que la clase
+	*EJM: users.php la clase se llamara users
+	*/
 	CONST ROUTES = array(
-		'propety' => 'propety',
-		'about' => 'about',
+		'' => '',
+		'index' => 'index',
 		'home' => 'home',
 		'users' => 'users',
-		'search' => 'search',
-		'errno' => 'errno'/*no olviden agregar la ruta, cada vez que agreguen un nuevo controller*/
 	);
 
 
