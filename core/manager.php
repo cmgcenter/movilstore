@@ -6,18 +6,13 @@
     //nbombre del sitio
     public $siteName;
     //version de la api
-    public static $apiVersion;
+    public $apiVersion;
 
 
 
     function __construct()
     {
       $this->LoadSettings();
-    }
-
-    static function CallStatic()
-    {
-      return static self::$this;
     }
 
     #cargamos los ajustes del sitio

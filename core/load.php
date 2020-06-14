@@ -70,10 +70,11 @@
 	$utils = new utils();
 
 	//cargamos el manager
-	//$manager = new manager();
+	$manager = new manager();
 
-    $api = manager::CallStatic()->apiVersion;
+  //iniciamos el view
+  $view = new ViewHTML();
 
-    echo $api;
-
+  //cargamos el router
+  $router = new Router($view);
 ?>
