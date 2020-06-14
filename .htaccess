@@ -21,6 +21,7 @@ RewriteRule ^(.*)$ index.php?PATH_INFO=$1 [L,QSA]
 ##manejo de errores
 ErrorDocument 405 /errno/405/
 ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
 
 Options +FollowSymLinks
 # Evitar escaneos y cualquier intento de manipulación malintencionada
