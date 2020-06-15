@@ -6,7 +6,6 @@
 	{
 		public static $MyRoutes = array();
 
-
 		function __construct($view)
 		{
 			self::run($view);

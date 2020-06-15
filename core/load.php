@@ -27,10 +27,9 @@
 	CONST DEFAULT_IMAGES = '/views/images/default-images/';
 	CONST THIRDPARTY_PATH = '/thirdParty/';
 
-	//cargar todas las clases
+    /* esta auto cargador de clases me sirvio en localhost, pero en servidor no me dio.
+    *cargare las clases una a una. (privicional hasta hacer funcionar esto en el server.)
 	spl_autoload_register( 'autoload' );
-
-
   	function autoload( $class, $dir = null )
   	{
     	//echo ' la clase es. '.$class.'<br>';//para saber lo que recive
@@ -64,6 +63,87 @@
       		}
     	}
 	}
+    */
+
+    //cargamos las clases dentro de app/controllers
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/controllers/".$class.".php"))
+        {
+            include_once "../app/controllers/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/controllers/".$class.".php"))
+            {
+                include_once "app/controllers/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de app/models
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/models/".$class.".php"))
+        {
+            include_once "../app/models/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/models/".$class.".php"))
+            {
+                include_once "app/models/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de app/views
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/views/".$class.".php"))
+        {
+            include_once "../app/views/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/views/".$class.".php"))
+            {
+                include_once "app/views/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de core
+    spl_autoload_register(function($class){
+
+        if(file_exists("../core/".$class.".php"))
+        {
+            include_once "../core/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("core/".$class.".php"))
+            {
+                include_once "core/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de helpers
+    spl_autoload_register(function($class){
+
+        if(file_exists("../helpers/".$class.".php"))
+        {
+            include_once "../helpers/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("helpers/".$class.".php"))
+            {
+                include_once "helpers/".$class.".php";
+            }
+        }
+    });
 
 
 	//iniciamos todas las clases
@@ -72,9 +152,9 @@
 	//cargamos el manager
 	$manager = new manager();
 
-  //iniciamos el view
-  $view = new ViewHTML();
+    //iniciamos el view
+    $view = new ViewHTML();
 
-  //cargamos el router
-  $router = new Router($view);
+    //cargamos el router
+    $router = new Router($view);
 ?>
