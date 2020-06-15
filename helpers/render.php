@@ -5,28 +5,20 @@
 	 */
 	class render
 	{
-		public static function addTemplates($tpl, $Data=array(), $under_construction=false)
+		public static function addTemplates($tpl, $Data=array())
     	{
-            //establecemos el roll al momento del login, de lo contrario sera 0
-            $roll = utils::userRoll(1);
-            $data = $Data;
-
-            if($under_construction == true)
+            $manager = new Manager();
+            $isUnderConstruction = $manager->settings['website']['under_construction'];
+            
+            if($isUnderConstruction == true)
             {
-                //si $under_construction esta en "true" mostramos la plantilla de 
-                //under construction
-                if( file_exists(UNDER_CONSTRUCTION_TPL."index.php") )
-                {
-                    include UNDER_CONSTRUCTION_TPL."index.php";
-                }
-                else
-                {
-                    die(UNDER_CONSTRUCTION_TPL."index.php");
-                }
-                
+                return self::UnderConstruction($isUnderConstruction);
+                die();
             }
             else
             {
+                $roll = utils::userRoll(1);
+                $data = $Data;
 
         	   if( file_exists(TEMPLATE.$roll.'/'.$tpl.".php") )
         	   {
@@ -38,6 +30,25 @@
         	   }
             }
     	}
+
+        private static function UnderConstruction($isUnderConstruction)
+        {
+            if($isUnderConstruction == true)
+            {
+                //si $under_construction esta en "true" mostramos la plantilla de 
+                //under construction
+                if( file_exists(UNDER_CONSTRUCTION_TPL."index.php") )
+                {
+                    $data = array('title' => "Under Construction!");
+                    include UNDER_CONSTRUCTION_TPL."index.php";
+                }
+                else
+                {
+                    die("error: ".UNDER_CONSTRUCTION_TPL."index.php");
+                }
+                
+            }
+        }
 	}
 
 
