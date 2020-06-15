@@ -10,8 +10,14 @@ class home
 	{
 		if(empty($get[0]) || $get[0] == "home" || $get[0] == "index")
 		{
-			
 			return self::index("Home");
+		}
+		else
+		{
+			if($get[0] == "games")
+			{
+				return self::index('Games');
+			}
 		}
 	}
 

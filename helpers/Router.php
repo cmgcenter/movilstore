@@ -14,6 +14,9 @@
 		//creamos la funcion que arranca el router
 		private static function run($view)
 		{
+			//verificamos antes de cualquier cosa, si la pagina esta activa o no
+			utils::CheckUnderConstruction();
+
 			//cargamos los recursos
 			self::$MyRoutes = ROUTES;
 
@@ -72,7 +75,6 @@
         		    $view->imprimir($respuesta/*, $opt*/);
         		    break;
         		}
-		
 		    	default:
         		// Método no aceptado
         		$view->estado = 405;
