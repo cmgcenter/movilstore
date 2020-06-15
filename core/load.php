@@ -23,6 +23,8 @@
 	CONST CURRENT_TEMPLATE = "default";
 	CONST ASSETS_PATH = '/views/templates/'.CURRENT_TEMPLATE."/assets/";
 	CONST TEMPLATE = ROOT.'/templates/'.CURRENT_TEMPLATE."/";
+    CONST UNDER_CONSTRUCTION_TPL = ROOT.'/templates/underConstruction/';
+    CONST UNDER_CONSTRUCTION_ASSETS = '/templates/underConstruction/';
 	CONST USERS_IMAGES = '/views/images/users-images/';
 	CONST DEFAULT_IMAGES = '/views/images/default-images/';
 	CONST THIRDPARTY_PATH = '/thirdParty/';
