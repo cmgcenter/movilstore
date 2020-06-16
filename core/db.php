@@ -1,7 +1,5 @@
 <?php 
 
-require 'data.php';
-
 //creamos la clase de base de datos.
 class db
 {

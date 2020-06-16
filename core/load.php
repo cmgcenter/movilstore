@@ -3,33 +3,141 @@
 	//session
 	if( !session_id() ){session_start();}
 
+    //incluimos las constantes 
+    include_once 'const.php';
 
-	//creamos unas cuantas constantes de codigos de estado
-	CONST ESTADO_CREACION_EXITOSA = 1;
-    CONST ESTADO_CREACION_FALLIDA = 2;
-    CONST ESTADO_ERROR_BD = 3;
-    CONST ESTADO_AUSENCIA_CLAVE_API = 4;
-    CONST ESTADO_CLAVE_NO_AUTORIZADA = 5;
-    CONST ESTADO_FALLA_DESCONOCIDA = 6;
-    CONST ESTADO_PARAMETROS_INCORRECTOS = 7;
-    CONST ESTADO_ERROR_DE_PAGINACION = 8;
-    CONST ESTADO_PETICION_NO_EXISTE = 9;
-    //constantes de inicio
-    CONST ESTADO_URL_INCORRECTA = 10;// codigo de url incorrecta
-    CONST ESTADO_EXISTENCIA_RECURSO = 11;
-    CONST ESTADO_METODO_NO_PERMITIDO = 12;
+    //cargamos las clases dentro de core
+    spl_autoload_register(function($class){
 
-	//definimos algunas constantes.
-	CONST CURRENT_TEMPLATE = "default";
-	CONST ASSETS_PATH = '/views/templates/'.CURRENT_TEMPLATE."/assets/";
-	CONST TEMPLATE = ROOT.'/templates/'.CURRENT_TEMPLATE."/";
-    CONST UNDER_CONSTRUCTION_TPL = ROOT.'/templates/underConstruction/';
-    CONST UNDER_CONSTRUCTION_ASSETS = '/templates/underConstruction/';
-	CONST USERS_IMAGES = '/views/images/users-images/';
-	CONST DEFAULT_IMAGES = '/views/images/default-images/';
-	CONST THIRDPARTY_PATH = '/thirdParty/';
+        if(file_exists("../core/".$class.".php"))
+        {
+            include_once "../core/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("core/".$class.".php"))
+            {
+                include_once "core/".$class.".php";
+            }
+        }
+        //print_r($class."<br>");
+    });
 
-    /* esta auto cargador de clases me sirvio en localhost, pero en servidor no me dio.
+    $manager = new manager();
+    
+    //incluimos las definiciones
+    include_once 'define.php';
+
+
+    //cargamos las clases dentro de app/controllers
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/controllers/".$class.".php"))
+        {
+            include_once "../app/controllers/".$class.".php";
+
+        }
+        else
+        {
+            if(file_exists("app/controllers/".$class.".php"))
+            {
+                include_once "app/controllers/".$class.".php";
+            }
+        }
+        
+    });
+
+    //cargamos las clases dentro de app/models
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/models/".$class.".php"))
+        {
+            include_once "../app/models/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/models/".$class.".php"))
+            {
+                include_once "app/models/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de app/views
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/views/".$class.".php"))
+        {
+            include_once "../app/views/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/views/".$class.".php"))
+            {
+                include_once "app/views/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de utils
+    spl_autoload_register(function($class){
+
+        if(file_exists("../utils/".$class.".php"))
+        {
+            include_once "../utils/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("utils/".$class.".php"))
+            {
+                include_once "utils/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de router
+    spl_autoload_register(function($class){
+
+        if(file_exists("../router/".$class.".php"))
+        {
+            include_once "../router/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("router/".$class.".php"))
+            {
+                include_once "router/".$class.".php";
+            }
+        }
+    });
+
+    //iniciamos todas las clases
+    $utils = new utils();
+
+    //tomamos la url del navegador
+    $router = new Router($_SERVER['REQUEST_URI']);
+
+    if(file_exists('../app/views/View.php'))
+    {
+        require '../app/views/View.php';
+    }
+    else
+    {
+        if(file_exists('app/views/View.php'))
+        {
+            require 'app/views/View.php';
+        }
+        else
+        {
+            http_response_code(404);
+            die('La Vista no Existe!');
+        }
+    }
+
+   
+
+    /* 
+    esta auto cargador de clases me sirvio en localhost, pero en servidor no me dio.
     *cargare las clases una a una. (privicional hasta hacer funcionar esto en el server.)
 	spl_autoload_register( 'autoload' );
   	function autoload( $class, $dir = null )
@@ -67,96 +175,4 @@
 	}
     */
 
-    //cargamos las clases dentro de app/controllers
-    spl_autoload_register(function($class){
-
-        if(file_exists("../app/controllers/".$class.".php"))
-        {
-            include_once "../app/controllers/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("app/controllers/".$class.".php"))
-            {
-                include_once "app/controllers/".$class.".php";
-            }
-        }
-    });
-
-    //cargamos las clases dentro de app/models
-    spl_autoload_register(function($class){
-
-        if(file_exists("../app/models/".$class.".php"))
-        {
-            include_once "../app/models/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("app/models/".$class.".php"))
-            {
-                include_once "app/models/".$class.".php";
-            }
-        }
-    });
-
-    //cargamos las clases dentro de app/views
-    spl_autoload_register(function($class){
-
-        if(file_exists("../app/views/".$class.".php"))
-        {
-            include_once "../app/views/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("app/views/".$class.".php"))
-            {
-                include_once "app/views/".$class.".php";
-            }
-        }
-    });
-
-    //cargamos las clases dentro de core
-    spl_autoload_register(function($class){
-
-        if(file_exists("../core/".$class.".php"))
-        {
-            include_once "../core/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("core/".$class.".php"))
-            {
-                include_once "core/".$class.".php";
-            }
-        }
-    });
-
-    //cargamos las clases dentro de helpers
-    spl_autoload_register(function($class){
-
-        if(file_exists("../helpers/".$class.".php"))
-        {
-            include_once "../helpers/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("helpers/".$class.".php"))
-            {
-                include_once "helpers/".$class.".php";
-            }
-        }
-    });
-
-
-	//iniciamos todas las clases
-	$utils = new utils();
-
-	//cargamos el manager
-	$manager = new manager();
-
-    //iniciamos el view
-    $view = new ViewHTML();
-
-    //cargamos el router
-    $router = new Router($view);
 ?>

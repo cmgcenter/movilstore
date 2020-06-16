@@ -1,24 +1,32 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?PATH_INFO=$1 [L,QSA]
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+    RewriteEngine On
 
-<ifModule mod_headers.c>
-	Header always set Access-Control-Allow-Origin "*"
-	Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
-	Header always set Access-Control-Max-Age "1000"
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    ## Evitar que se liste el contenido de los directorios
+Options All -Indexes
+IndexIgnore *.php *.html *.css *.js
+# Protegerse contra los ataques DOS limitando el tamaño de subida de archivos
+LimitRequestBody 10240000
 </IfModule>
 
 
-#RewriteEngine on
-#RewriteCond %{REQUEST_METHOD} OPTIONS
-#RewriteRule ^(.*)$ $1 [R=200,L]
 
-##manejo de errores
-ErrorDocument 405 /errno/405/
-ErrorDocument 403 /error.php
-ErrorDocument 404 /error.php
-ErrorDocument 400 /error.php?error=400
+# Manaejo De Errores
+ErrorDocument 301 /
+ErrorDocument 403 /error/403/
+ErrorDocument 404 /error/404/
+
+
 
 Options +FollowSymLinks
 # Evitar escaneos y cualquier intento de manipulación malintencionada
@@ -34,13 +42,6 @@ RewriteCond %{HTTP_REFERER} ^(.*)(%00|%08|%09|%0A|%0B|%0C|%0D|%0E|%0F|%2C|<|>|'|
 RewriteCond %{QUERY_STRING} ^(.*)(%00|%08|%09|%0A|%0B|%0C|%0D|%0E|%0F|%2C|%3C|%3E|%27|%26%23|%60)(.*) [NC,OR]
 RewriteCond %{QUERY_STRING} ^(.*)('|-|<|>|,|/|\\|\.a|\.c|\.t|\.d|\.p|\.i|\.e|\.j)(.*) [NC,OR]
 RewriteCond %{HTTP_COOKIE} ^(.*)(<|>|'|%3C|%3E|%27)(.*) [NC]
-
-## Evitar que se liste el contenido de los directorios
-Options All -Indexes
-## Lo mismo que lo anterior
-IndexIgnore *
-# Protegerse contra los ataques DOS limitando el tamaño de subida de archivos
-LimitRequestBody 10240000
 
 #NO PERMITIR LA DESCARGA DE ARCHIVOS .TPL
 <FilesMatch "\.(htaccess|ini|log|cfg|tpl|env)$">

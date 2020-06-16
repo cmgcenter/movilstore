@@ -12,4 +12,7 @@
 	//incluimos el load.php
 	include_once 'core/load.php';
 
+	//iniciamos el router
+	$router->run();
+
 ?>

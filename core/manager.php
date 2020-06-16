@@ -65,5 +65,26 @@
       unset($tmp);
     }
 
+    function userRoll()
+    {
+      $u = intval(1);
+      if(isset($_SESSION['roll']))
+      {$u = intval($_SESSION['roll']);}
+      elseif(isset($_COOOKIE['roll']))
+      {$u = intval($_COOOKIE['roll']);}
+      else{$u=1;}
+
+      if($u == 1)
+      {
+        return "users";
+      }
+      else if($u == 99)
+      {
+        return "admins";
+      }
+    }
+
+    final function __clone(){}
+
   }
 ?>
