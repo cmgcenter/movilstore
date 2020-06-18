@@ -34,7 +34,6 @@
         if(file_exists("../app/controllers/".$class.".php"))
         {
             include_once "../app/controllers/".$class.".php";
-
         }
         else
         {
@@ -44,6 +43,42 @@
             }
         }
     });
+
+
+    //cargamos las clases dentro de utils
+    spl_autoload_register(function($class){
+
+        if(file_exists("../utils/".$class.".php"))
+        {
+            include_once "../utils/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("utils/".$class.".php"))
+            {
+                include_once "utils/".$class.".php";
+            }
+        }
+    });
+
+    //cargamos las clases dentro de language
+    spl_autoload_register(function($class){
+
+        if(file_exists("../language/".$class.".php"))
+        {
+            include_once "../language/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("language/".$class.".php"))
+            {
+                include_once "language/".$class.".php";
+            }
+        }
+    });
+
+    $language = "es";
+    $lang = new lang($language);
 
     //cargamos las clases dentro de app/models
     spl_autoload_register(function($class){
@@ -73,22 +108,6 @@
             if(file_exists("app/views/".$class.".php"))
             {
                 include_once "app/views/".$class.".php";
-            }
-        }
-    });
-
-    //cargamos las clases dentro de utils
-    spl_autoload_register(function($class){
-
-        if(file_exists("../utils/".$class.".php"))
-        {
-            include_once "../utils/".$class.".php";
-        }
-        else
-        {
-            if(file_exists("utils/".$class.".php"))
-            {
-                include_once "utils/".$class.".php";
             }
         }
     });

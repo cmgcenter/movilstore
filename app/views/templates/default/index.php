@@ -20,7 +20,7 @@
 				<img src="<?php echo TEMPLATE_ASSETS; ?>img/logo.png" alt="">
 			</a>
 			<div class="user-panel">
-				<a href="../../users/">Login</a> / <a href="#">Register</a>
+				<a href="../../users/"><?php echo LOGIN; ?></a> / <a href="#"><?php echo REGISTER; ?></a>
 			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
@@ -29,11 +29,11 @@
 			<!-- site menu -->
 			<nav class="main-menu">
 				<ul>
-					<li><a href="../../">Home</a></li>
-					<li><a href="../../games/">Games</a></li>
-					<li><a href="../../blog/">Blog</a></li>
-					<li><a href="../../forum/">Forums</a></li>
-					<li><a href="../../contactus/">Contact</a></li>
+					<li><a href="../../"><?php echo HOME; ?></a></li>
+					<li><a href="../../games/"><?php echo GAMES; ?></a></li>
+					<li><a href="../../blog/"><?php echo BLOG; ?></a></li>
+					<li><a href="../../forum/"><?php echo FORUM; ?></a></li>
+					<li><a href="../../contactus/"><?php echo CONTACTUS; ?></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -50,7 +50,7 @@
 					<div class="container">
 						<h2>The Best <span>Games</span> Out There</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
-						<a href="#" class="site-btn">Read More</a>
+						<a href="#" class="site-btn"><?php echo READ_MORE; ?></a>
 					</div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 					<div class="container">
 						<h2>The Best <span>Games</span> Out There</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
-						<a href="#" class="site-btn">Read More</a>
+						<a href="#" class="site-btn"><?php echo READ_MORE; ?></a>
 					</div>
 				</div>
 			</div>
@@ -72,7 +72,7 @@
 
 	<!-- Latest news section -->
 	<div class="latest-news-section">
-		<div class="ln-title">Latest News</div>
+		<div class="ln-title"><?php echo LASTEST_NEWS; ?></div>
 		<div class="news-ticker">
 			<div class="news-ticker-contant">
 				<div class="nt-item"><span class="new">new</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
@@ -138,8 +138,8 @@
 	<section class="recent-game-section spad set-bg" data-setbg="<?php echo TEMPLATE_ASSETS; ?>img/recent-game-bg.png">
 		<div class="container">
 			<div class="section-title">
-				<div class="cata new">new</div>
-				<h2>Recent Games</h2>
+				<div class="cata new"><?php echo 'Nuevo'; ?></div>
+				<h2><?php echo RECENT_GAMES; ?></h2>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
