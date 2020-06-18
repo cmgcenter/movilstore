@@ -28,7 +28,6 @@
     //incluimos las definiciones
     include_once 'define.php';
 
-
     //cargamos las clases dentro de app/controllers
     spl_autoload_register(function($class){
 
@@ -44,7 +43,6 @@
                 include_once "app/controllers/".$class.".php";
             }
         }
-        
     });
 
     //cargamos las clases dentro de app/models
@@ -133,46 +131,5 @@
             die('La Vista no Existe!');
         }
     }
-
-   
-
-    /* 
-    esta auto cargador de clases me sirvio en localhost, pero en servidor no me dio.
-    *cargare las clases una a una. (privicional hasta hacer funcionar esto en el server.)
-	spl_autoload_register( 'autoload' );
-  	function autoload( $class, $dir = null )
-  	{
-    	//echo ' la clase es. '.$class.'<br>';//para saber lo que recive
-    	if ( is_null( $dir ) )
-    	{
-      		$dir = ROOT."/";
-    	}
-    
-    	foreach ( scandir( $dir ) as $file )
-    	{
-    		// directory?
-      		if ( is_dir( $dir.$file ) && substr( $file, 0, 1 ) !== '.' )
-      		{
-      			//Esto lo he modificado ya que estoy hacienda las pruebas en wampServer Windows
-        		autoload( $class, $dir.$file.'\\' );
-      		}
-     		
-      		// php file?
-      		if ( substr( $file, 0, 2 ) !== '._' && preg_match( "/.php$/i" , $file ) )
-      		{
-        		// filename matches class?
-        		if ( str_replace( '.php', '', $file ) == $class || str_replace( '', '', $file ) == $class ) 
-        		{
-        			if(file_exists($dir.$file))
-        			{
-        				//echo  $dir.$file."<br>";
-        				include $dir . $file;
-        			}
-            		
-        		}
-      		}
-    	}
-	}
-    */
 
 ?>

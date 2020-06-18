@@ -1,6 +1,5 @@
 <?php
 
-
 	if(!defined('CURRENT_TEMPLATE'))
  	{define('CURRENT_TEMPLATE', $manager->settings['website']['currentTemplate']);}
 
@@ -11,7 +10,7 @@
  	{define('TEMPLATE', ROOT.'/app/views/templates/'.CURRENT_TEMPLATE."/");}
 
  	if(!defined('TEMPLATE_ASSETS'))
- 	{define('TEMPLATE_ASSETS', '/app/views/templates/'.CURRENT_TEMPLATE."/assets");}
+ 	{define('TEMPLATE_ASSETS', '/app/views/templates/'.CURRENT_TEMPLATE."/assets/");}
 
  	if(!defined('UNDER_CONSTRUCTION_TPL'))
  	{define('UNDER_CONSTRUCTION_TPL', ROOT.'/app/views/templates/underConstruction/');}
@@ -25,10 +24,10 @@
  	if(!defined('DEFAULT_IMAGES'))
  	{define('DEFAULT_IMAGES', '/views/images/default-images/');}
 
+ 	if(!defined('DASHBOARD_TPL'))
+ 	{define('DASHBOARD_TPL', ROOT.'app/views/templates/'.CURRENT_TEMPLATE.'/'.$manager->userRoll().'/' );}
+
  	if(!defined('DASHBOARD_ASSETS'))
- 	{define('DASHBOARD_ASSETS', '/templates/'.CURRENT_TEMPLATE.'/assets/adminLTE/');}
-
-    define('DASHBOARD',  ROOT.'/templates/'.CURRENT_TEMPLATE.'/'.$manager->userRoll().'/');
-
+    {define('DASHBOARD_ASSETS',  '/app/views/templates/'.CURRENT_TEMPLATE.'/assets/dashboard_assets/');}
 
 ?>

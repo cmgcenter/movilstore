@@ -19,15 +19,15 @@
     function LoadSettings()
     {
         #buscamos y cargamos el archivo de Settings.php
-        if(file_exists(ROOT."/core/data.env"))
+        if(file_exists(ROOT."/app/config/data.env"))
         {
-            $this->settings = parse_ini_file(ROOT."/core/data.env", true);
+            $this->settings = parse_ini_file(ROOT."/app/config/data.env", true);
         }
         else
         {
-            if(file_exists("../core/data.env"))
+            if(file_exists("../app/config/data.env"))
             {
-                $this->settings = parse_ini_file("../core/data.env", true);
+                $this->settings = parse_ini_file("../app/config/data.env", true);
             }
             else
             {

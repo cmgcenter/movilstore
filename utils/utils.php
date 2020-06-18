@@ -40,28 +40,19 @@ class utils
 		header("location: ".URI."/".$url);
 	}
 
-	public static function switchError($errno)
-	{
-		switch ($errno) {
-			case '0':
-				self::GoTo("errno/PendientUser/".$errno."/");
-				break;
-
-			case '2':
-				self::GoTo("errno/BannedUser/".$errno."/");
-				break;
-			
-			default:
-				self::GoTo("errno/InvalidUserCode/".$errno."/");
-				break;
-		}
-	}
-
 	public static function SessionActive()
 	{
 		if( !isset($_SESSION['roll']) AND !isset($_SESSION['userId']) AND !isset($_SESSION['authKey']) )
 		{
-			return false;
+			if( !isset($_COOKIE['roll']) AND !isset($_COOKIE['userId']) AND !isset($_COOKIE['authKey']) )
+			{
+				return false;
+			}
+			else
+			{
+				return true;;
+			}
+			
 		}
 		else
 		{
@@ -72,9 +63,15 @@ class utils
 	public static function CheckUnderConstruction()
 	{
 		$manager = new manager();
-		$isUnderConstruction = $manager->settings['website']['under_construction'];
+		$isUnderMaintenance =  $manager->settings['website']['under_construction'];
+		$isUnderConstruction = $manager->settings['website']['under_maintenance'];
 
 		if($isUnderConstruction == 'true')
+		{
+			render::UnderConstruction($isUnderConstruction);
+			die();
+		}
+		else
 		{
 			render::UnderConstruction($isUnderConstruction);
 			die();

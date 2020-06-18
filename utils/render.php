@@ -52,6 +52,28 @@
             }
             return '';
         }
+
+        public static function UnderMaintenance($isUnderMaintenance)
+        {
+            if($isUnderMaintenance == 'true')
+            {
+                //si $under_construction esta en "true" mostramos la plantilla de 
+                //under construction
+                if( file_exists(UNDER_CONSTRUCTION_TPL."index.php") )
+                {
+
+                    
+                    $data = array('title' => "Under Maintenance! ");
+                    include UNDER_CONSTRUCTION_TPL."index.php";
+                }
+                else
+                {
+                    die("error: ".UNDER_CONSTRUCTION_TPL."index.php");
+                }
+            }
+            return '';
+        }
+
 	}
 
 

@@ -1,3 +1,15 @@
+<?php
+  
+  if(isset($_POST['wannaBeDevs']))
+  {
+    //require_once ROOT.THIRDPARTY_PATH.'email/forms/contact.php';
+  }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +48,8 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex flex-column align-items-center">
 
-      <h1>ComingSoon</h1>
-      <h2>We're working hard to improve our website and we'll ready to launch after</h2>
+      <h1>Games, Apps & Assets (AGA inc)</h1>
+      <h2>Estamos Trabajando Mucho para llevarles a una tienda de Juegos, Aplicaciones Y Assets Muy Pronto</h2>
       <div class="countdown d-flex justify-content-center" data-count="2020/12/30">
         <div>
           <h3>%D</h3>
@@ -58,25 +70,24 @@
       </div>
 
       <div class="subscribe">
-        <h4>Subscribe now to get the latest updates!</h4>
+        <h4>Suscribete Para que Te llegue Notificiones A Tu Correo</h4>
         <form action="forms/notify.php" method="post" role="form" class="php-email-form">
           <div class="subscribe-form">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
+            <input required="true" type="email" name="email"><input type="submit" value="Subscribe">
           </div>
           <div class="mt-2">
-            <div class="loading">Loading</div>
+            <div class="loading">Sending.....</div>
             <div class="error-message"></div>
-            <div class="sent-message">Your notification request was sent. Thank you!</div>
+            <div class="sent-message">Recibiras las notificaciones a tu Correo! Gracias</div>
           </div>
         </form>
       </div>
 
       <div class="social-links text-center">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="https://twitter.com/cristmartn" target="_blank" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        <a href="#" class="instagram"><i class="icofont-youtube"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-github"></i></a>
       </div>
 
     </div>
@@ -90,23 +101,22 @@
 
         <div class="row content">
           <div class="col-lg-6">
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+            <h2>Que Podras Hacer En Esta Tienda</h2>
+            <h3>Antes de Todo, Dejame Decirte que esta tienda estará horientada a Desarrolladores Y Estudios Independientes, De Tal Forma que gran Parte de lo que vas a encontrar en esta tienda sera Gratis O De Codigo Abierto.</h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+              <h3>Que Vas A Encontrar En esta Tienda</h3>
             </p>
             <ul>
-              <li><i class="icofont-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-              <li><i class="icofont-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="icofont-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+              <li><i class="icofont-check"></i> Juegos Multi Plataforma Gratis y De Paga</li>
+              <li><i class="icofont-check"></i> Aplicaciones Multi Plataforma Gratis y de Paga</li>
+              <li><i class="icofont-check"></i> Assets Para Juegos o Aplicaciones</li>
+              <li><i class="icofont-check"></i> Templates De Juegos y Aplicaciones</li>
+              <li><i class="icofont-check"></i> Entre muchas Cosas Mas...</li>
             </ul>
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Entre las muchas novedades que deseamos implementar para los desarrolladores, habilitaremos un SDK que tendra Sistema de estadisticas, Sistema De Publicidad Propio y de Terceros, Sistema de Usuarios, Sistema De puntos. 
             </p>
           </div>
         </div>
@@ -119,14 +129,15 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Contact Us</h2>
+          <h2>Quieres Ser Desarrollador En AGA</h2>
+          <h3>Contactanos</h3>
         </div>
 
         <div class="row justify-content-center">
 
           <div class="col-lg-10">
 
-            <div class="info-wrap">
+            <!-- <div class="info-wrap">
               <div class="row">
                 <div class="col-lg-4 info">
                   <i class="icofont-google-map"></i>
@@ -146,7 +157,7 @@
                   <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
                 </div>
               </div>
-            </div>
+            </div> -->
 
           </div>
 
@@ -154,23 +165,23 @@
 
         <div class="row  justify-content-center">
           <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="#" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input required="true" type="text" name="name" class="form-control" id="name" placeholder="Ingresa tu Nombre Completo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input required="true" type="email" class="form-control" name="email" id="email" placeholder="Ingresa Tu Email" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Que Deseas Desarrollar" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Cuentanos Sobre ti"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
@@ -178,7 +189,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button name="wannaBeDevs" id="wannaBeDevs" type="submit">Solicitar</button></div>
             </form>
           </div>
 
