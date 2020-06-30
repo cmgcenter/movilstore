@@ -4,6 +4,9 @@
 	if( !defined('HOME') )
 	{ define('HOME', 'Inicio'); }
 
+	if( !defined('CATALOG') )
+	{ define('CATALOG', 'Catalogo'); }
+
 	if( !defined('READ_MORE') )
 	{ define('READ_MORE', 'Ver Mas...'); }
 
@@ -58,6 +61,19 @@
 	if( !defined('BEST_COMMENTS') )
 	{ define('BEST_COMMENTS', 'Mejores Comentarios'); }
 
+	if( !defined('NEW_ITEMS') )
+	{ define('NEW_ITEMS', 'Lo Mas Nuevo!'); }
+
+	if( !defined('PC_GAMES') )
+	{ define('PC_GAMES', 'Juegos De PC'); }
+
+	if( !defined('ANDROID_GAMES') )
+	{ define('ANDROID_GAMES', 'Juegos Android'); }
+
+	if( !defined('IOS_GAMES') )
+	{ define('IOS_GAMES', 'Juegos IOS'); }
+
+
 
 
 
@@ -81,6 +97,17 @@
 	if( !defined('COMBAT') )
 	{ define('COMBAT', 'Combate'); }
 
+
+
+
+/***********ERROR GAMES NOT FOUND PAGE***********/
+
+	if( !defined('GAME_NO_FOUND') )
+	{ define('GAME_NO_FOUND', 'Juego No Encontrado'); }
+
+
+	if( !defined('GO_BACK') )
+	{ define('GO_BACK', 'Regresar'); }
 
 
 

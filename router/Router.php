@@ -39,6 +39,8 @@ class Router {
 		$response = false;
 		$requestUri = $this->getRequestUri();
 
+		
+
 		foreach ($this->routes as $route)
 		{
 			if ($route->checkIfMatch($requestUri))
@@ -77,7 +79,12 @@ class Router {
 		{
 			http_response_code(404);
 			//header("HTTP/1.0 404 Not Found");
-			exit('404');
+			//exit('404');
+
+			echo HomeController::showError( '404' );
+
+			//('location: ../../error/404/');
+			die();
 		}
 	}
 

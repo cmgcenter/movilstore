@@ -3,6 +3,11 @@
 class utils 
 {
 
+	public static function galeryImage($array, $i)
+	{
+		return json_decode( $array[$i]['galery'] );
+	}
+
 
 	public static function protect($input)
     {
@@ -76,6 +81,17 @@ class utils
 			render::UnderConstruction($isUnderConstruction);
 			die();
 		}
+	}
+
+	public static function ValidateUrl($hr, $url )
+	{
+		echo parse_url($hr()['Location'])['query'];
+
+		/*if($var_1 != $var_2)
+		{
+			header('location: ../../');
+			exit();
+		}*/
 	}
 
 }

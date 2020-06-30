@@ -46,6 +46,8 @@ class db
      */
     public function obtenerBD()
     {
+        $manager = new manager();
+        
         if (self::$pdo == null) {
             self::$pdo = new PDO(
                 'mysql:dbname=' .$manager->settings['dbConnection']['database'].

@@ -20,7 +20,6 @@ LimitRequestBody 10240000
 </IfModule>
 
 
-
 # Manaejo De Errores
 ErrorDocument 301 /
 ErrorDocument 403 /error/403/

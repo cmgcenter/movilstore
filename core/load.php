@@ -44,6 +44,22 @@
         }
     });
 
+    //cargamos las configuracion
+    spl_autoload_register(function($class){
+
+        if(file_exists("../app/config/".$class.".php"))
+        {
+            include_once "../app/config/".$class.".php";
+        }
+        else
+        {
+            if(file_exists("app/config/".$class.".php"))
+            {
+                include_once "app/config/".$class.".php";
+            }
+        }
+    });
+
 
     //cargamos las clases dentro de utils
     spl_autoload_register(function($class){
@@ -129,7 +145,7 @@
     });
 
     //iniciamos todas las clases
-    $utils = new utils();
+    //$utils = new utils();
 
     //tomamos la url del navegador
     $router = new Router($_SERVER['REQUEST_URI']);

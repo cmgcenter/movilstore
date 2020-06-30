@@ -102,8 +102,9 @@ ol {
 }
 
 .spad {
-	padding-top: 97px;
-	padding-bottom: 97px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: black;
 }
 
 .text-white h1,
@@ -162,6 +163,15 @@ ol {
 	font-weight: 500;
 	color: #fff;
 	padding: 6px 25px;
+}
+
+.cata.free {
+	background: gold;
+	text-decoration-color: black;
+}
+
+.cata.paid {
+	background: green;
 }
 
 .cata.new {
@@ -407,6 +417,13 @@ ol {
   Latest News section
 -----------------------*/
 
+a.class_a_href{
+pointer-events: none;
+cursor: default;
+}
+
+
+
 .latest-news-section {
 	overflow: hidden;
 	display: block;
@@ -517,7 +534,7 @@ ol {
 ------------------------*/
 
 .recent-game-section {
-	background-color: #eef2f6;
+	background-color: black;
 	border-top: 1px solid #d6dee7;
 	border-bottom: 1px solid #d6dee7;
 }
@@ -717,9 +734,10 @@ ol {
 ------------------------*/
 
 .footer-top-section {
-	background-image: url("../img/pattern.png");
-	background-repeat: repeat;
-	padding: 72px 0;
+	/*background-image: url("../img/pattern.png");
+	background-repeat: repeat;*/
+	background-color: black;
+	padding: 25px 0;
 }
 
 .footer-top-section .container {
@@ -965,6 +983,14 @@ ol {
 	padding-right: 15px;
 	color: #878787;
 	cursor: pointer;
+}
+
+.game-title {
+	background: white;
+	border: 10px;
+	border-top-color: black;
+	padding-left: 15px;
+	position: relative;
 }
 
 /*-----------------
@@ -1509,3 +1535,87 @@ ol {
 		font-size: 40px;
 	}
 }
+
+
+
+
+/*game card*/
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  column-count:2;
+}
+
+.card {
+  margin: 10px;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.98, 0.98);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 200px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
